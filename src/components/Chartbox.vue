@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import TradingVue from 'trading-vue-js'
-import { DataCube } from 'trading-vue-js'
+import TradingVue from 'trading-vue-js-tmm'
+import { DataCube } from 'trading-vue-js-tmm'
 
 export default {
     name: 'Chartbox',

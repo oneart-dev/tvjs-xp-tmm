@@ -8,15 +8,15 @@ const VERS = require('../package.json').version
 const DATE = new Date().toDateString()
 const BANNER =
 
-`[[NAME]] - v[[VERS]] - ${DATE}\n` +
-`    Copyright (c) 2020 [[AUTHOR]]\n`
+    `[[NAME]] - v[[VERS]] - ${DATE}\n` +
+    `    Copyright (c) 2020 [[AUTHOR]]\n`
 let common = {
     entry: {
         '[[NAME]]': './src/build/[[NAME]]/[[NAME]].js',
         '[[NAME]].min': './src/build/[[NAME]]/[[NAME]].js',
     },
     externals: {
-        'trading-vue-js': 'trading-vue-js',
+        'trading-vue-js-tmm': 'trading-vue-js-tmm',
         'vue': 'vue'
     },
     output: {
@@ -32,22 +32,22 @@ let common = {
     },
     module: {
         rules: [{
-                test: /\.vue$/,
-                exclude: /node_modules/,
-                loader: 'vue-loader'
-            },
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader'
-            },
-            {
-                test: /\.css$/,
-                use: [
-                    'vue-style-loader',
-                    'css-loader'
-                ]
-            },
+            test: /\.vue$/,
+            exclude: /node_modules/,
+            loader: 'vue-loader'
+        },
+        {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader'
+        },
+        {
+            test: /\.css$/,
+            use: [
+                'vue-style-loader',
+                'css-loader'
+            ]
+        },
         ]
     },
     optimization: {

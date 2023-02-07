@@ -1,7 +1,7 @@
 
 // Extension's controller
 
-import { Utils } from 'trading-vue-js'
+import { Utils } from 'trading-vue-js-tmm'
 import Vue from 'vue'
 import Splitter from './Splitter.vue'
 
@@ -42,13 +42,13 @@ export default class Main {
 
     // Listens to all tvjs events, creates new widgets
     update(e) {
-        switch(e.event) {
+        switch (e.event) {
 
         }
     }
 
     // Extension settings has changed
-    onsettings(sett) {}
+    onsettings(sett) { }
 
     ongrids() {
         setTimeout(() => {
@@ -90,7 +90,7 @@ export default class Main {
     place_splitters() {
         let grids = this.tv.$refs.chart._layout.grids
         for (var i = 1; i < grids.length; i++) {
-            let g1 = grids[i-1]
+            let g1 = grids[i - 1]
             let g2 = grids[i]
             let id = `Splitter-${g1.id}-${g2.id}-${Utils.uuid2()}`
             Vue.set(this.widgets, id, {

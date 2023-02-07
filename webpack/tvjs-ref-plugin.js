@@ -2,16 +2,16 @@
 const ConcatSource = require('webpack-sources').ConcatSource
 
 const DEF =
-`
-    if (!root['trading-vue-js']) {
-        root['trading-vue-js'] = root['TradingVueJs']
+    `
+    if (!root['trading-vue-js-tmm']) {
+        root['trading-vue-js-tmm'] = root['TradingVueJs']
     }
     if (!root['vue']) {
         root['vue'] = root['Vue']
     }`
 
 module.exports = class TvjsRef {
-    constructor() {}
+    constructor() { }
     apply(compiler) {
         compiler.hooks.compilation.tap("OutputEdit", compilation => {
             compilation.hooks.processAssets.tap(
@@ -27,7 +27,7 @@ module.exports = class TvjsRef {
                                 file,
                                 old => new ConcatSource(old.source().replace(
                                     '(root, factory) {',
-                                    '(root, factory) {'+DEF,
+                                    '(root, factory) {' + DEF,
                                 ))
                             );
                         }
@@ -35,5 +35,5 @@ module.exports = class TvjsRef {
                 }
             );
         });
-     }
- }
+    }
+}

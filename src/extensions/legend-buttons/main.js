@@ -1,7 +1,7 @@
 
 // Extension's controller
 
-import { Utils } from 'trading-vue-js'
+import { Utils } from 'trading-vue-js-tmm'
 import Vue from 'vue'
 import AddWin from './AddWin.vue'
 
@@ -18,10 +18,10 @@ export default class Main {
 
     // Listens to all tvjs events, creates new widgets
     update(e) {
-        switch(e.event) {
+        switch (e.event) {
             case 'legend-button-click':
                 this.onbutton(e.args[0])
-            break
+                break
         }
     }
 
@@ -30,7 +30,7 @@ export default class Main {
         let onchart = this.dc.data.onchart
         let offchart = this.dc.data.offchart
         if (!ov) return
-        switch(e.button) {
+        switch (e.button) {
             case 'display':
                 if (ov.settings.display === undefined) {
                     var flag = false
@@ -47,7 +47,7 @@ export default class Main {
                     } else {
                         let data = offchart
                         let i0 = e.dataIndex
-                        let i1 = e.dataIndex-1
+                        let i1 = e.dataIndex - 1
                         data[i0] = data.splice(i1, 1, data[i0])[0]
                     }
                 }
@@ -58,13 +58,13 @@ export default class Main {
                     let h = this.avg_grid_h(offchart)
                     onchart.splice(e.dataIndex, 1)
                     offchart.unshift(ov)
-                    this.tv.$set(ov, 'grid', {height: h})
+                    this.tv.$set(ov, 'grid', { height: h })
                 } else {
                     let n = offchart.length
                     let data = offchart
                     if (e.dataIndex < n - 1) {
                         let i0 = e.dataIndex
-                        let i1 = e.dataIndex+1
+                        let i1 = e.dataIndex + 1
                         data[i0] = data.splice(i1, 1, data[i0])[0]
                     }
                 }
@@ -76,7 +76,7 @@ export default class Main {
                     let ov = this.dc.data[e.type][e.dataIndex]
                     let f = Object.values(this.widgets)
                         .find(x => x.data.ov === ov)
-                    if(f) {
+                    if (f) {
                         this.tv.$delete(this.widgets, f.id)
                         break
                     }
@@ -87,7 +87,7 @@ export default class Main {
                             index: e.dataIndex
                         }
                     })
-                } catch(e) {
+                } catch (e) {
                     console.log(e)
                 }
                 break
@@ -105,7 +105,7 @@ export default class Main {
         let onchart = this.dc.data.onchart
         let offchart = this.dc.data.offchart
         if (e.side === 'onchart') {
-            onchart.splice(e.index+1, 0, {
+            onchart.splice(e.index + 1, 0, {
                 name: preset.name,
                 type: e.type,
                 data: [],
@@ -113,12 +113,12 @@ export default class Main {
             })
         } else {
             let h = this.avg_grid_h(offchart)
-            offchart.splice(e.index+1, 0, {
+            offchart.splice(e.index + 1, 0, {
                 name: preset.name,
                 type: e.type,
                 data: [],
                 settings: preset.settings || {},
-                grid: {height: h}
+                grid: { height: h }
             })
         }
         this.dc.update_ids()
@@ -134,7 +134,7 @@ export default class Main {
     }
 
     // Extension settings has changed
-    onsettings(sett) {}
+    onsettings(sett) { }
 
     avg_grid_h(ovs) {
         if (!ovs.length) return 0.25

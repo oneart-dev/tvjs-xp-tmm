@@ -9,10 +9,10 @@ const VERS = require('../package.json').version
 const DATE = new Date().toDateString()
 const BANNER =
 
-`TVJS Std Extension Pack - v${VERS} - ${DATE}\n` +
-`    https://github.com/tvjsx/tvjs-xp\n` +
-`    Copyright (c) 2020 c451 Code's All Right;\n` +
-`    Licensed under the MIT license`
+    `TVJS Std Extension Pack - v${VERS} - ${DATE}\n` +
+    `    https://github.com/tvjsx/tvjs-xp\n` +
+    `    Copyright (c) 2020 c451 Code's All Right;\n` +
+    `    Licensed under the MIT license`
 
 let common = {
     entry: {
@@ -20,7 +20,7 @@ let common = {
         'tvjs-xp.min': './src/index_prod.js',
     },
     externals: {
-        'trading-vue-js': 'trading-vue-js',
+        'trading-vue-js-tmm': 'trading-vue-js-tmm',
         'vue': 'vue'
     },
     output: {
@@ -36,22 +36,22 @@ let common = {
     },
     module: {
         rules: [{
-                test: /\.vue$/,
-                exclude: /node_modules/,
-                loader: 'vue-loader'
-            },
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader'
-            },
-            {
-                test: /\.css$/,
-                use: [
-                    'vue-style-loader',
-                    'css-loader'
-                ]
-            },
+            test: /\.vue$/,
+            exclude: /node_modules/,
+            loader: 'vue-loader'
+        },
+        {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader'
+        },
+        {
+            test: /\.css$/,
+            use: [
+                'vue-style-loader',
+                'css-loader'
+            ]
+        },
         ]
     },
     optimization: {

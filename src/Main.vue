@@ -25,8 +25,8 @@
 </template>
 
 <script>
-import TradingVue from 'trading-vue-js'
-import { DataCube } from 'trading-vue-js'
+import TradingVue from 'trading-vue-js-tmm'
+import { DataCube } from 'trading-vue-js-tmm'
 import StdInput from './components/StdInput.vue'
 import Multiselect from './components/Multiselect.vue'
 import AppTag from './components/AppTag.vue'

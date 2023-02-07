@@ -1,7 +1,7 @@
 
 // Extension's controller
 
-import { Utils } from 'trading-vue-js'
+import { Utils } from 'trading-vue-js-tmm'
 import SettingsWin from './SettingsWin.vue'
 import Vue from 'vue'
 
@@ -15,7 +15,7 @@ export default class Main {
 
     // Listens to all tvjs events, creates new widgets
     update(e) {
-        switch(e.event) {
+        switch (e.event) {
             case 'legend-button-click':
                 let id = `SettingsWin-${Utils.uuid2()}`
                 let args = e.args[0]
@@ -24,14 +24,14 @@ export default class Main {
                     let ov = this.dc.data[args.type][args.dataIndex]
                     let f = Object.values(this.widgets)
                         .find(x => x.data.ov === ov)
-                    if(f) {
+                    if (f) {
                         this.tv.$delete(this.widgets, f.id)
                         break
                     }
                     this.tv.$set(this.widgets, id, {
                         id, cls: SettingsWin, data: { ov: ov }
                     })
-                } catch(e) {
+                } catch (e) {
                     console.log(e)
                 }
                 break

@@ -14,8 +14,8 @@
 </template>
 <script>
 
-import TradingVue from 'trading-vue-js'
-import { DataCube } from 'trading-vue-js'
+import TradingVue from 'trading-vue-js-tmm'
+import { DataCube } from 'trading-vue-js-tmm'
 import Overlays from 'tvjs-overlays'
 import Data from '../../data/data.json'
 

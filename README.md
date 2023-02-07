@@ -35,7 +35,7 @@ npm i tvjs-xp
 </template>
 <script>
 
-import TradingVue from 'trading-vue-js'
+import TradingVue from 'trading-vue-js-tmm'
 import XP from 'tvjs-xp'
 
 export default {

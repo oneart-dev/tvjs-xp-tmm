@@ -18,8 +18,8 @@
 </template>
 <script>
 
-import TradingVue from 'trading-vue-js'
-import { DataCube } from 'trading-vue-js'
+import TradingVue from 'trading-vue-js-tmm'
+import { DataCube } from 'trading-vue-js-tmm'
 import Data from '../../data/data-multi.json'
 import Chartbox from '../components/Chartbox.vue'
 import Codepane from '../components/Codepane.vue'
